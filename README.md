@@ -1,11 +1,14 @@
 # NAGVM - comparing VCenter and Nagios host names
-This small web application was written to compare the contents of one or more VCenter servers and see what hosts were not yet configured for monitoring in Nagios. 
+This small web application was written to compare the contents of one or more VCenter servers and see what hosts were not yet configured for monitoring in Nagios. The problem is tries to solve is that of unmanaged VMWare servers in a large VMWare environment. 
+
+Basically, it searches the VMWare database. Any machine that has the VMWare tools installed will have it's first NIC IP address added in this database. We list all of those and compare them to the host address in Nagios, doing a DNS lookup if needed. The results, ie. all VMs that do not appear in Nagions, are shown to the user. 
 
 * The application is in Dutch at the moment. Feel free to ask for an English translation *
 
 ## Features
 - See what hosts are missing in Nagios
 - Add exceptions to keep them out of the list
+- Vms that did not register their IP address, for example because of issues with the VMWare tools package, are shown as well. 
 - Send a daily nag-mail to a given mail address with all of the missing hosts
 
 ## Requirements
